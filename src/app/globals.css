@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --eco-blue: #183263;
+  --eco-green: #7ec13d;
 }
 
 @theme inline {
@@ -23,4 +25,121 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.botaoRecompensa {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  background: linear-gradient(
+    to right,
+    var(--eco-blue),
+    var(--eco-green),
+    var(--eco-blue)
+  );
+  background-size: 200% 100%;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+}
+
+.botaoRecompensa:hover {
+  background-position: 100% 0;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.botaoRecompensa:active {
+  transform: scale(0.98);
+}
+
+.instagram-container {
+  background: linear-gradient(
+    135deg,
+    rgba(24, 50, 99, 0.1),
+    rgba(126, 193, 61, 0.1)
+  );
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.instagram-container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--eco-blue),
+    var(--eco-green),
+    var(--eco-blue)
+  );
+  background-size: 200% 200%;
+  z-index: -1;
+  border-radius: 1rem;
+  animation: borderAnimation 3s ease infinite;
+}
+
+.instagram-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(24, 50, 99, 0.1);
+}
+
+.instagram-container:hover::before {
+  animation: borderAnimation 1.5s ease infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.instagram-icon {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #edf3f9;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #183263;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #7ec13d;
 }

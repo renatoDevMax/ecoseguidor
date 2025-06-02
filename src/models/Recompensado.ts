@@ -1,4 +1,8 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
+
+interface IRecompensado extends Document {
+  nomes: string[];
+}
 
 const recompensadoSchema = new mongoose.Schema({
   nomes: {
@@ -10,6 +14,6 @@ const recompensadoSchema = new mongoose.Schema({
 // Verifica se o modelo já existe antes de criar um novo
 const Recompensado =
   mongoose.models.Recompensado ||
-  mongoose.model("Recompensado", recompensadoSchema);
+  mongoose.model<IRecompensado>("Recompensado", recompensadoSchema);
 
 export default Recompensado;

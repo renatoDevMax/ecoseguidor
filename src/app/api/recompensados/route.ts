@@ -51,7 +51,7 @@ export async function DELETE(request: Request) {
     const recompensado = await Recompensado.findOne();
 
     if (recompensado) {
-      recompensado.nomes = recompensado.nomes.filter((n) => n !== nome);
+      recompensado.nomes = recompensado.nomes.filter((n: string) => n !== nome);
       await recompensado.save();
     }
 
